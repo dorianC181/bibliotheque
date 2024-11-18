@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GenreLitteraire index{% endblock %}
+
+{% block body %}
+    <h1>GenreLitteraire index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for genre_litteraire in genre_litteraires %}
+            <tr>
+                <td>{{ genre_litteraire.id }}</td>
+                <td>{{ genre_litteraire.libelle }}</td>
+                <td>
+                    <a href="{{ path('app_genre_litteraire_show', {'id': genre_litteraire.id}) }}">show</a>
+                    <a href="{{ path('app_genre_litteraire_edit', {'id': genre_litteraire.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_genre_litteraire_new') }}">Create new</a>
+{% endblock %}

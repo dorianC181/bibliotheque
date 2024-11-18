@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit GenreLitteraire{% endblock %}
+
+{% block body %}
+    <h1>Edit GenreLitteraire</h1>
+
+    {{ include('genre_litteraire/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_genre_litteraire_index') }}">back to list</a>
+
+    {{ include('genre_litteraire/_delete_form.html.twig') }}
+{% endblock %}
